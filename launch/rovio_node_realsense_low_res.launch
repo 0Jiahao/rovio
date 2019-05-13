@@ -2,7 +2,7 @@
 <launch>
   <node pkg="rovio" type="rovio_node" name="rovio" output="screen">
   <param name="filter_config" value="$(find rovio)/cfg/rovio.info"/>
-  <param name="camera0_config" value="$(find rovio)/cfg/realsense_cam_low_res.yaml"/>
+  <param name="camera0_config" value="$(find rovio)/cfg/realsense_cam0_low_res.yaml"/>
   <remap from="/imu0" to="/camera/imu"/>
   <remap from="/cam0/image_raw" to="/camera/infra1/image_rect_raw"/>
   </node>

@@ -56,6 +56,10 @@
 #include "rovio/CoordinateTransform/YprOutput.hpp"
 #include "rovio/CoordinateTransform/LandmarkOutput.hpp"
 
+#include <iostream>
+
+using namespace std;
+
 namespace rovio {
 
 /** \brief Class, defining the Rovio Node
@@ -714,6 +718,9 @@ class RovioNode{
           tf_transform_CM.setOrigin(tf::Vector3(state.MrMC(camID)(0),state.MrMC(camID)(1),state.MrMC(camID)(2)));
           tf_transform_CM.setRotation(tf::Quaternion(state.qCM(camID).x(),state.qCM(camID).y(),state.qCM(camID).z(),-state.qCM(camID).w()));
           tb_.sendTransform(tf_transform_CM);
+          cout << "-----" << camID << "-----" << endl;
+          cout << state.MrMC(camID)(0) << " " << state.MrMC(camID)(1) << " " << state.MrMC(camID)(2) << endl;
+          cout << state.qCM(camID).x() << " " << state.qCM(camID).y() << " " << state.qCM(camID).z() << " " << state.qCM(camID).w() << endl;
         }
 
         // Publish Odometry
